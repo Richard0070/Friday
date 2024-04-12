@@ -8,7 +8,7 @@ class Misc(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.token = config.KEY
-        self.change_description.start()
+
     @app_commands.command(name="invite", description="Generate an invite link for the bot")
     async def invite(self, interaction: discord.Interaction):
         permissions = discord.Permissions(administrator=True)
@@ -30,6 +30,10 @@ class Misc(commands.Cog):
             "bio": new_description
         }
         response = requests.patch(url, headers=headers, json=payload)
+
+    @commands.Cog.listener()
+    async def on_ready(self):
+        self.change_description.start()
 
 async def setup(bot):
     await bot.add_cog(Misc(bot))
