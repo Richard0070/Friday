@@ -9,7 +9,7 @@ class Welcomer(commands.Cog):
         self.bot = bot
         self.welcome_channels = utils.welcomerutils.load_welcome_channels()
 
-    @commands.command(name='set_welcome_channel', aliases=["swc"], usage=<channel>, description="Set the welcome channel for the server.")
+    @commands.command(name='set_welcome_channel', aliases=["swc"], usage="<channel>", description="Set the welcome channel for the server.")
     @commands.has_permissions(manage_guild=True)
     async def set_welcome_channel(self, ctx, channel: discord.TextChannel):
         guild_id = ctx.guild.id

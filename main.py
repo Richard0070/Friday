@@ -4,6 +4,7 @@ import os
 from discord.ext import commands
 import time
 import statistics
+import config
 
 def get_prefix(bot, message):
     file_path = 'data/prefixes.json'
@@ -89,4 +90,4 @@ async def ping(ctx):
         f'- Shard latency: **{shard_latency:.2f}ms**\n\n'
         f'Time between ping command and first reply: **{command_reply_time:.2f}ms**', allowed_mentions=discord.AllowedMentions.none())
 
-bot.run(os.environ['KEY'])
+bot.run(config.KEY)
