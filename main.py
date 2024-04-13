@@ -22,7 +22,7 @@ def get_prefix(bot, message):
         with open(file_path, 'w') as f:
             json.dump(prefixes, f)
     return prefixes.get(str(message.guild.id), '!')
-
+    
 bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=discord.Intents.all())
 bot.remove_command('help')
 
@@ -52,7 +52,7 @@ async def sync_commands():
 async def on_message(message):
     if not message.author.bot:
         await bot.process_commands(message)
-
+  
 @bot.command(name='setprefix', usage="<new prefix>", description="Set the bot's prefix for this server.")
 @commands.has_permissions(manage_guild=True)
 async def set_prefix(ctx, prefix):

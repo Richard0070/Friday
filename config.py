@@ -7,3 +7,4 @@ async def is_owner(ctx):
     return ctx.author.id in allowed_ids
   
 KEY = os.environ['KEY']
+NASA = os.environ['NASA']
