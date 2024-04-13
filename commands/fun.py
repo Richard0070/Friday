@@ -7,12 +7,13 @@ from datetime import datetime
 from utils.userprofileutils import create_user_info_image
 from utils.nasautils import NASAButton
 import aiohttp
+import config
 
 from typing import Union
 from utils.emojifyutils import emojify_image, find_closest_emoji
 from PIL import Image
 
-key = os.environ['NASA']
+key = config.NASA
 
 class Fun(commands.Cog):
     def __init__(self, bot):
